@@ -1,0 +1,20 @@
+:doodle {
+  background: #0a0c27;
+}
+
+@grid: 1 / 100vmax;
+
+@content: @svg(
+  viewBox: 0 0 16 16;
+  stroke: #aeacfb;
+  stroke-width: .05;
+  stroke-linecap: round;
+  line*16x16 {
+    draw: @r(2s);
+    x1, y1, x2, y2: @p(
+      @nx(-1) @ny(-1) @nx @ny,
+      @nx @ny(-1) @nx(-1) @ny,
+      @nx @ny(-1) @nx @ny
+    );
+  }
+);

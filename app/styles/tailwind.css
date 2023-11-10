@@ -1,0 +1,553 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+css-doodle {
+  --learn-pattern-2: (
+    :doodle {
+      @grid: 1 / 2000px / #005874;
+      transform: rotate(-135deg) scale(4);
+    }
+    background-repeat: no-repeat;
+    background: @doodle(
+      @grid: 6x1 / calc(100% + 1px);
+      @size: calc(100% - 100% / @I * (@i - 1));
+      position: absolute;
+      border-radius: @M4.r(30%, 50%);
+      border: 1px solid black;
+      background: @pn(
+        #EE9322,#219C90,#EE9322,#D83F31,#219C90,#D83F31
+      );
+    ) 0 / 18px 18px;
+  );
+
+  --learn-pattern: (
+    @grid: 1 / 100%;
+
+    background-size: 200px 200px;
+    background-image: @doodle(
+      @grid: 1 / 200px / #005874;
+      background-image: @m8.@doodle(
+        @grid: 1 / 50px;
+        background: @p(#65d6ce,#1c819e, #e6e6d4,#ffbe00);
+        transform: rotate(@r(360deg)) scale(@r(.5, 1));
+        clip-path: @shape(
+          split: 30;
+          scale: .3;
+          x: sin(t) + sin(5t) - sin(111t);
+          y: cos(t) + cos(5t) - cos(111t);
+        );
+      );
+
+      background-position:
+        -20px 30px, 40px 50px, 120px 5px, 25px 120px, 170px 170px,
+        120px 130px, 15px -20px, 130px 80px;
+    );
+  );
+
+  --learn-pattern-7: (
+    @grid: 2 / 100%;
+    background: @pn(#3C2B34, #F7F0E9, #F7F0E9);
+    transform-origin: @pn(100% 100%, 0 100%, 100% 0, 0 0);
+    transform:
+      rotateX(45deg)
+      skewY(@pn(34deg, -34deg, -34deg));
+  );
+
+  --pattern-7: (
+    @grid: 1 / 100%;
+    background-size: 83px 135px;
+    background-color: #D24B45;
+    background-image: @doodle(
+      @grid: 2 / 100%;
+      background: @pn(#3C2B34, #F7F0E9, #F7F0E9);
+      transform-origin: @pn(100% 100%, 0 100%, 100% 0, 0 0);
+      transform:
+        rotateX(45deg)
+        skewY(@pn(34deg, -34deg, -34deg));
+    );
+  );
+
+  --learn-pattern-4: (
+    @grid: 8x1 / 90%;
+    position: absolute;
+    border-radius: 0% 60%;
+    position: absolute;
+    border: 1px solid #BCB8BB;
+    @nth(1) { border-radius: 0% 60%; }
+    @size: calc(100% - 100% / @I * (@i - 1));
+    background: linear-gradient(
+      45deg, @stripe(transparent, #BCB8BB 1px, transparent)
+    );
+  );
+
+  --pattern-4: (
+    @grid: 1 / 100%;
+    background-color: #332B33;
+    background-image: @doodle(
+      :doodle {
+        @grid: 1 / 10000px;
+        transform: scale(1.5) rotate(45deg);
+      }
+      background-size: 50px 50px;
+      background-image: @doodle(
+        :doodle {
+          @grid: 8x1 / 90%;
+          border-radius: 0% 60%;
+        }
+        position: absolute;
+        border: 1px solid #BCB8BB;
+        @nth(1) { border-radius: 0% 60%; }
+        @size: calc(100% - 100% / @I * (@i - 1));
+        background: linear-gradient(
+          45deg, @stripe(transparent, #BCB8BB 1px, transparent)
+        );
+      );
+    );
+  );
+
+  --pattern-2: (
+    @grid: 1 / 100%;
+
+    background: @doodle(
+      background-color: #f5f8ff;
+      background-size:  160px 160px;
+      background-image: @doodle(
+        :doodle {
+          @grid: 3 / 100%;
+          transform: scale(calc(3 / 2));
+        }
+
+        :after {
+          content: '';
+          @size: 100%;
+          border-radius: 50%;
+          position: absolute;
+          border: 3px double #F4CE14;
+          background: @doodle(
+            @grid: 1 / 100%;
+            clip-path: @shape(
+              points: 20;
+              scale: 2;
+              r: cos(222t)^224-.2;
+            );
+            background: #495E57;
+          );
+          background-size: 45% 45%;
+          background-repeat: no-repeat;
+          background-position: 50% 52%;
+        }
+
+        :before {
+          content: '';
+          @size: 100%;
+          border-radius: 50%;
+          position: absolute;
+          border: 3px double #F4CE14;
+          background: @doodle(
+            @grid: 1 / 100%;
+            clip-path: @shape(
+              points: 20;
+              scale: 2;
+              r: cos(222t)^224-.2;
+            );
+            background: #495E57;
+          );
+          background-size: 45% 45%;
+          background-repeat: no-repeat;
+          background-position: 50% 52%;
+        }
+
+        :before {
+          transform: translate(50%, 50%);
+        }
+      );
+    );
+  );
+
+  --pattern-1: (
+    @grid: 1 / 100%;
+
+    background: @doodle(
+      background-size: 300px 300px;
+      background-image: @doodle(
+        :doodle {
+          @grid: 5x12 / 100% 240%;
+          transform: scale(1.25);
+        }
+        top: calc(@y * -30px);
+
+        :before {
+          content: '';
+          @size: 100%;
+          position: absolute;
+          left: auto;
+          top: auto;
+          border-radius: 50%;
+          z-index: calc(@y - 2);
+          background: repeating-radial-gradient(
+            @stripe(#023967 4px, #c5dff5 2px)
+          );
+        }
+
+        :after {
+          content: '';
+          @size: 100%;
+          position: absolute;
+          left: 50%;
+          top: 25%;
+          border-radius: 50%;
+          z-index: calc(@y - 1);
+          background: repeating-radial-gradient(
+            @stripe(#023967 4px, #c5dff5 2px)
+          );
+        }
+      );
+    );
+  );
+
+
+  --playtime: (
+    @grid: 1 / 100%;
+    clip-path: @shape(
+      split: 120;
+      frame: 15;
+      r: cos(t/10)^sin(t)^sin(2t)*.9;
+    );
+    transform: rotate(calc(@t * .0001turn));
+    background: linear-gradient(
+      @m3(hsl(calc(@t/@r(15, 20)), 60%, 60%))
+    );
+  );
+
+  --hor: (
+    @grid: 1x20 / 100% / #1b2242;
+    @size: 10px;
+    background: #FFF;
+    border-radius: 50%;
+    @place: $(30 + 50 * sin(@dy/@I))%  $(-2 + @i * 100 / @I)%;
+    @content: @dy;
+  );
+
+  --howgridworks: (
+    :container {
+      grid-gap: 2px;
+    }
+
+    @grid: 10 / 100% / #fcfcfc +1.7 *45deg;
+
+    background: @doodle(
+      @grid: 1 / 100%;
+      background: @m10(
+        radial-gradient(#60569e 50%, #0000 0)
+        @plot(r: sin(t / 3)) / 5px 5px
+        no-repeat
+      );
+    );
+  );
+
+  --superformula: (
+    :container {
+      grid-gap: 2px;
+    }
+
+    @grid: 5 / 100%  / #1b2242;
+    background: hsl(@r360, 30%, 70%);
+
+    transform: rotate(calc(@t * .0001turn));
+
+    clip-path: @shape(
+      points: 30;
+      m: 2;
+      n1: 0.5;
+      n2: 0.5;
+      n3: 0.5;
+      p1: pow(abs.cos(t*m/4), n2);
+      p2: pow(abs.sin(t*m/4), n3);
+      r: pow(1/(p1 + p2), (1/n1));
+    );
+  );
+
+  --exp15: (
+    @grid: 30x1 / 100% auto 1 / #1b2242;
+    @seed: 1676602917230;
+    @place: @plot(r: 0.5; dir: auto -90);
+    @size: 130%;
+    :container { filter: drop-shadow(0 -1px 0 #fff) }
+    clip-path: @shape(rotate: 30);
+    background: @doodle(
+      background: radial-gradient(
+        @m6.@P(#f2cc67,#f38264,#f40034,#5f051f,#75baa8)
+      );
+      clip-path: @shape(
+        points: 200;
+        scale: .5 .9;
+        x: (1 + sin(t)) * cos(t);
+        y: -sin(t);
+        frame: 2;
+      );
+    );
+  );
+
+  --rain: (
+    :doodle {
+      @grid: 1x3 / 100%;
+      z-index: 0;
+    }
+
+    @size: 100% 150%;
+    position: absolute;
+
+    background: @m(100, (
+      linear-gradient(transparent, @p(
+        #FFFDE1@repeat(2, @p([0-9a-f])),
+        #AEDFF7@repeat(2, @p([0-9a-f]))
+      ))
+      @r(0%, 100%) @r(0%, 100%) /
+      @r(1px) @r(23vmin)
+      no-repeat
+    ));
+
+    will-change: transform;
+    animation: f 20s linear calc(-20s / @size() * @i()) infinite;
+
+    @keyframes f {
+      from { transform: translateY(-50%) }
+      to { transform: translateY(50%) }
+    }
+  );
+
+  --exp14: (
+    :container {
+      --c: @r360;
+    }
+
+    @grid: 20 / 100%;
+    --hy: @round.hypot(@dx, @dy);
+
+    background: hsl($c, 30%, $(hy*7)%);
+
+    animation: inout 3s ease infinite;
+    animation-delay: $(hy * -.2)s;
+
+    @keyframes inout {
+      50% { opacity: 0; }
+    }
+  );
+
+  --exp13: (
+    @grid: 30x1 / 100% / #38004C ~ -20% 20%;
+    @place: center;
+    @size: calc(40px * @i - 16px);
+
+    z-index: @I(-@i);
+    @match(@i % 5 === 3) {
+      animation: r $(@I(-@i) * 1)s linear infinite;
+    }
+
+    background-image: @doodle(
+      @grid: 1 / 100%;
+
+      rotate: @r(360deg);
+      border: 4px solid #090C27;
+      border-radius: 50%;
+      background: conic-gradient(#88C399, #AEDFF7, #F5B7D3, #B4B4B4, #006400, #006400);
+
+      :after {
+        content: '';
+        position: absolute;
+        top: 0;
+        @size: 16px;
+        border-radius: 50%;
+        background: radial-gradient(farthest-side at 20% 20%, #fff, #88C399);
+      }
+    );
+
+    @keyframes r {
+      from { transform: rotate(0); }
+      to { transform:rotate(-1turn); }
+    }
+  );
+
+  --exp12: (
+    @grid: 1 / 400px / #ffe0db;
+    @content: @Svg(
+      viewBox: 0 0 45 45 padding -12.5;
+      fill: none;
+      stroke: #0800fe;
+      path*45 {
+        stroke-width: @abs(.5 - 1/@N*@n);
+        d: M 10 @n
+          Q 22.5 @calc(@n + (45 - @n*2)/1.85)
+            35 @n
+      }
+    );
+  );
+
+  --exp11: (
+    @grid: 1x2 / 100% / #e8c7b6;
+    rotate: @pn(180deg, none);
+    background-size: 100% 100%;
+    background-image: @doodle400x100(
+      @grid: 39x1 / 150% 100%;
+      @size: auto 100% 1;
+      border-radius: 50%;
+      translate: -70%;
+      box-shadow: inset $(@i(%13) * 1.2)px 0 0 #0800fd;
+    );
+  );
+
+
+  --exp10: (
+    @grid: 24 / 100% / #4d49af +.95;
+    @size: 100% 2px;
+
+    --n: @round(@dy/@dx + @dx/@dy);
+
+    margin: auto;
+    rotate: $(n * 60)deg;
+    background: hsl($(n * 36), 80%, 80%);
+  );
+
+  --exp9: (
+    @grid: 20 / 100% / #2d712b + .85;
+    @size: 100% 3px;
+
+    background: #fee6ff;
+    border-radius: 50px;
+    margin: auto;
+    rotate: calc(@dx * @dy * 60deg);
+  );
+
+  --exp8: (
+    @grid: 50 / 100%;
+
+    :after {
+      content: \@hex(@r(9632, 9687));
+    }
+  );
+
+  --exp7: (
+    @grid: 1x120 / 100% 150%;
+    @size: $(@floor.rn(70, 90, .8))% 1px;
+    justify-self: center;
+
+    --p: @floor.rn(0, 360, 2);
+    background: hsl($(p)deg, 30%, 70%);
+
+    transform: rotate(-15deg) translateX($(@sin(@i / 4) * 3.14159 * 10)px);
+    margin-top: -10%;
+  );
+
+  --exp6: (
+    @grid: 24 / 100% / #e5f1ff;
+    @size: 100% calc(100%/@Y*@y);
+
+    --p: @floor.rn(0, 360, .8);
+
+    background: hsl($(p)deg, 30%, 70%);
+    rotate: $(p)deg;
+    margin: auto;
+  );
+
+  --exp5: (
+    :container {
+      --c: @r360;
+    }
+
+    @grid: 1 / 100%;
+    background-image: @doodle(
+      @grid: 21 / 100% / #0a0c27;
+      @shape: circle;
+
+      --d: $(@abs(@abs(@row - 11) + @abs(@col - 11) - 21) / 21);
+      opacity: $d;
+      background: hsl($($d*$c)deg, 30%, 70%);
+    );
+  );
+
+  --exp4: (
+    @grid: 1 / 100% / #0a0c27;
+    background: linear-gradient(@stripe(gold 60%, orange 30%, crimson));
+  );
+
+  --exp3: (
+    @grid: 1 / 100%;
+    background-image: @doodle(
+      @grid: 30*1 / 100%;
+      @place: center;
+      @size: calc(100% / 30 * @index);
+      opacity: calc(1.1 - 1 / 30 * @index);
+      z-index: calc(30 - @index);
+      background: hsl(@r360, 30%, 70%);
+
+      border-radius: @repeat4.@r(60%, 90%);
+    );
+  );
+
+  --exp2: (
+    :container {
+      grid-gap: 2px;
+    }
+
+    @grid: 10 / 100%;
+    background: #0a0c27;
+    @size: @r(30%, 100%);
+    @shape: bud @p(3, 4, 5);
+    transform: scale(@r(.2, 1.5)) translate(@m2.@r(-50%, 50%));
+  );
+
+  --exp: (
+    :container {
+      grid-gap: 2px;
+    }
+
+    @grid: 20 / 100%;
+
+    @match(tan.cos.sin(x*y) > 1) {
+      background-image: radial-gradient(hsl(@r360, 30%, 70%) 50%, #0000 0);
+      background-position: 50% 50%;
+      background-size: @r(40%, 80%) @lr();
+      background-repeat: no-repeat;
+    }
+  );
+
+  --rule1: (
+    @grid: 5 / 100%;
+
+    --c: hsl(@r360, 30%, 80%);
+    --d: @p(45deg, -45deg, 135deg, -135deg);
+    --lg: linear-gradient(@var(--d), @var(--c) 50%, #0000 0);
+
+    background: @var(--lg) 0 0 / 100% 100%, @var(--lg) 0 0 / 50% 50%;
+  );
+
+  --robot: (
+    @grid: 1 / 100% / #0a0c27;
+    background-size: 200px 200px;
+    background-image: @doodle(
+      @grid: 6 / 100%;
+      @size: 4px;
+      font-size: 4px;
+      color: hsl(@r240, 30%, 50%);
+      box-shadow: @m3x5(
+        calc(4em - @nx*1em) @ny(*1em) @p(@m3(currentColor), @m2(#0000)),
+        calc(2em + @nx*1em) @ny(*1em) @lp
+      );
+    );
+  );
+
+  --borderrandom: (
+    @grid: 20 / 100% / #0a0c27;
+    @random { border-top: 1px solid #60569e; }
+    @random { border-left: 1px solid #60569e; }
+    @random(.2) {
+      :after {
+        content: '';
+        background: hsl(@rand(360), 60%, 70%);
+        @size: @rand(3px);
+      }
+    }
+  );
+}
+

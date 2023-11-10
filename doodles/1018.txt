@@ -1,0 +1,8 @@
+@grid: 10 / 100vmax / #0a0c27;
+
+background: linear-gradient(
+  @r(360deg),
+  @stripe(hsl(@r(360), 60%, 70%),  hsl(@r(360), 60%, 70%),  hsl(@r(360), 60%, 70%))
+);
+transform: scale(@r(0.7, 0.9)) rotate(@rand(-20deg, 20deg));
+border-radius: @repeat(4, @r(10%, 30%));
